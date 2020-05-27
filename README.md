@@ -38,3 +38,17 @@ hash2 - 128 bit
 
 where (rand1 + rand2) is the 256 bit of the _private_ random salt
 and (hash1 + hash2) is the 256 bit of the _public_ hash
+
+## Getting started
+
+```sh
+zokrates compile -i preimage.zok
+zokrates setup
+zokrates compute-witness -a 1992 123 123 262140349991953179649713052027276505713 244327079047328984568957103581042649506
+zokratesgenerate-proof
+zokrates export-verifier
+```
+
+## Comments
+
+With the pre-commitment from a trusted third party, we can now merge these two concepts to build a age prover using a commitment from a trusted third party.
