@@ -1,0 +1,3 @@
+def main(private field birthYear, field comparisonYear, field minimumDifference) -> (field):
+  field result = if comparisonYear - birthYear >= minimumDifference then 1 else 0 fi
+  return result
