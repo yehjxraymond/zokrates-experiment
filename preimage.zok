@@ -1,0 +1,7 @@
+import "hashes/sha256/512bitPacked" as sha256packed
+
+def main(private field birthYear, private field rand1, private field rand2, field hash1, field hash2) -> (field):
+    h = sha256packed([0, birthYear, rand1, rand2])
+    h[0] == hash1
+    h[1] == hash2
+    return 1
