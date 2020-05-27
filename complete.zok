@@ -1,0 +1,18 @@
+import "hashes/sha256/512bitPacked" as sha256packed
+
+def birthYearCheck(private field birthYear, private field rand1, private field rand2, field hash1, field hash2) -> (field):
+    h = sha256packed([0, birthYear, rand1, rand2])
+    h[0] == hash1
+    h[1] == hash2
+    return 1
+
+def ageCheck(private field birthYear, field comparisonYear, field minimumDifference) -> (field):
+    field result = if comparisonYear - birthYear >= minimumDifference then 1 else 0 fi
+    return result
+
+def main(private field birthYear, private field rand1, private field rand2, field hash1, field hash2, field comparisonYear, field minimumDifference) -> (field):
+    birthYearTest = birthYearCheck(birthYear, rand1, rand2, hash1, hash2)
+    birthYearTest == 1
+    ageTest = ageCheck(birthYear, comparisonYear, minimumDifference)
+    ageTest == 1
+    return 1
